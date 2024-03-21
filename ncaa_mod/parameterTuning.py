@@ -17,6 +17,7 @@ import matplotlib.pyplot as plt
 import torch.cuda.amp as amp
 import copy
 import pickle
+import cleaning as c
 
 class EarlyStopping:
     def __init__(self, patience=5, min_delta=0, restore_best_weights=True):
@@ -43,10 +44,13 @@ class EarlyStopping:
                 return True
         return False
 
-
+PATH = 'data'
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-df = pd.read_csv("<PLACE_HOLDER>", na_values=['?'])
-X_columns = ['<PLACE_HOLDER>']
+
+df = c.read_to_one_frame(PATH)
+df = c.clean_data(df)
+
+X_columns = df.columns[2:-1]
 X = pd.get_dummies(df[X_columns])
 a14Target = df['<PLACE_HOLDER>']
 
