@@ -7,9 +7,12 @@ def read_to_one_frame(path) -> pd.DataFrame:
     """Reads all csv files in a directory and concatenates them into a single DataFrame"""
     df = pd.DataFrame()
     for file in os.listdir(path):
+        year = '20' + file[-2:]
         file = os.path.join(path, file)
         if file.endswith('.csv'):
-            df = pd.concat([df, pd.read_csv(file)])
+            currYear = pd.read_csv(file)
+            currYear['YEAR'] = year
+            df = pd.concat([df, currYear])
     return df
 
 
@@ -45,3 +48,5 @@ def create_made_postseason(df):
     """Creates a new column that indicates whether a team made the postseason"""
     df['MADE_POSTSEASON'] = np.where(df['POSTSEASON'] == 'NA', 0, 1)
     return df
+
+
