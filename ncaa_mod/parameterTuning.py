@@ -52,7 +52,7 @@ df = c.clean_data(df)
 
 X_columns = df.columns[2:-1]
 X = pd.get_dummies(df[X_columns])
-a14Target = df['<PLACE_HOLDER>']
+a14Target = df['POSTSEASON']
 
 X_train_a14, X_temp_a14, y_train_a14, y_temp_a14 = train_test_split(a14Features, a14Target, test_size=0.3, random_state=42)
 X_val_a14, X_test_a14, y_val_a14, y_test_a14 = train_test_split(X_temp_a14, y_temp_a14, test_size=0.5, random_state=42)
@@ -393,17 +393,6 @@ def predictMissingValues(model, scaler, features, missingIndicies):
     with torch.no_grad():
         predictions = model(features_missing_tensor).cpu().numpy().flatten()
     return predictions
-
-
-
-
-
-
-
-
-
-
-
 
 
 
