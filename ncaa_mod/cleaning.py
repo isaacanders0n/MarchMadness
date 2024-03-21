@@ -40,6 +40,8 @@ def arrange_cols(df: pd.DataFrame) -> pd.DataFrame:
 
 def create_made_postseason(df):
     """Creates a new column that indicates whether a team made the postseason"""
+    #replace N/A with NA
+    df['POSTSEASON'].replace('N/A', 'NA', inplace = True)
     df['MADE_POSTSEASON'] = np.where(df['POSTSEASON'] == 'NA', 0, 1)
     return df
 
