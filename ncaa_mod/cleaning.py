@@ -27,6 +27,7 @@ def encode_postseason(df: pd.DataFrame) -> pd.DataFrame:
         'S16': 5,
         'R32': 6,
         'R64': 7,
+        'R68': 8,
     }
 
     df['POSTSEASON'] = df['POSTSEASON'].map(rankings)
