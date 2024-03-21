@@ -53,3 +53,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 
+def read_and_clean(path: str) -> pd.DataFrame:
+    """Reads and cleans data"""
+    df = read_to_one_frame(path)
+    return clean_data(df)
