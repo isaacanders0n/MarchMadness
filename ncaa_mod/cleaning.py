@@ -38,17 +38,16 @@ def arrange_cols(df: pd.DataFrame) -> pd.DataFrame:
     """Rearranges columns"""
     return df.iloc[:, :-2].join(df.iloc[:, -1]).join(df.iloc[:, -2])
 
+def create_made_postseason(df):
+    """Creates a new column that indicates whether a team made the postseason"""
+    df['MADE_POSTSEASON'] = np.where(df['POSTSEASON'] == 'NA', 0, 1)
+    return df
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """Cleans data"""
     df = encode_postseason(df)
     df = arrange_cols(df)
-    return df
-
-
-def create_made_postseason(df):
-    """Creates a new column that indicates whether a team made the postseason"""
-    df['MADE_POSTSEASON'] = np.where(df['POSTSEASON'] == 'NA', 0, 1)
+    create_made_postseason(df)
     return df
 
 
