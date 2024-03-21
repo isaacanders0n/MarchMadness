@@ -7,12 +7,13 @@ def read_to_one_frame(path) -> pd.DataFrame:
     """Reads all csv files in a directory and concatenates them into a single DataFrame"""
     df = pd.DataFrame()
     for file in os.listdir(path):
-        year = '20' + file[-2:]
-        file = os.path.join(path, file)
-        if file.endswith('.csv'):
-            currYear = pd.read_csv(file)
-            currYear['YEAR'] = year
-            df = pd.concat([df, currYear])
+        if not file.endswith('20.csv'):
+            year = '20' + file[-2:]
+            file = os.path.join(path, file)
+            if file.endswith('.csv'):
+                currYear = pd.read_csv(file)
+                currYear['YEAR'] = year
+                df = pd.concat([df, currYear])
     return df
 
 
