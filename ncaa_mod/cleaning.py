@@ -1,7 +1,6 @@
 import pandas as pd
 import os
 
-PATH = 'data'
 
 def read_to_one_frame(path) -> pd.DataFrame:
     """Reads all csv files in a directory and concatenates them into a single DataFrame"""
@@ -14,8 +13,3 @@ def read_to_one_frame(path) -> pd.DataFrame:
 
 
 
-
-
-def main():
-    df = read_to_one_frame(PATH)
-    y = 
