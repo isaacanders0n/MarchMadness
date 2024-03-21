@@ -49,7 +49,7 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """Cleans data"""
     df = encode_postseason(df)
     df = arrange_cols(df)
-    create_made_postseason(df)
+    df = create_made_postseason(df)
     return df
 
 
