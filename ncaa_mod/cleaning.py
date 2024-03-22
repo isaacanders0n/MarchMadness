@@ -8,7 +8,7 @@ def read_to_one_frame(path) -> pd.DataFrame:
     df = pd.DataFrame()
     for file in os.listdir(path):
         if not file.endswith('20.csv'):
-            year = '20' + file[-2:]
+            year = '20' + str(file[-6:-4])
             file = os.path.join(path, file)
             if file.endswith('.csv'):
                 currYear = pd.read_csv(file)
@@ -41,7 +41,7 @@ def arrange_cols(df: pd.DataFrame) -> pd.DataFrame:
 def create_made_postseason(df):
     """Creates a new column that indicates whether a team made the postseason"""
     #replace N/A with NA
-    df['MADE_POSTSEASON'] = np.where(df['POSTSEASON'] == np.nan, 0, 1)
+    df['MADE_POSTSEASON'] = np.where(pd.isna(df['POSTSEASON']), 0, 1)
     return df
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
@@ -54,5 +54,4 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 
 def read_and_clean(path: str) -> pd.DataFrame:
     """Reads and cleans data"""
-    df = read_to_one_frame(path)
-    return clean_data(df)
+    return clean_data(read_to_one_frame(path))
