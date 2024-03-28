@@ -36,7 +36,8 @@ def encode_postseason(df: pd.DataFrame) -> pd.DataFrame:
 
 def arrange_cols(df: pd.DataFrame) -> pd.DataFrame:
     """Rearranges columns"""
-    return df.iloc[:, :-2].join(df.iloc[:, -1]).join(df.iloc[:, -2])
+    col_order = df.columns[:-2] + ['POSTSEASON', 'YEAR']
+    return df[col_order]
 
 def create_made_postseason(df):
     """Creates a new column that indicates whether a team made the postseason"""
@@ -54,4 +55,5 @@ def clean_data(df: pd.DataFrame) -> pd.DataFrame:
 
 def read_and_clean(path: str) -> pd.DataFrame:
     """Reads and cleans data"""
-    return clean_data(read_to_one_frame(path))
+    df = read_to_one_frame(path)
+    return clean_data(df)

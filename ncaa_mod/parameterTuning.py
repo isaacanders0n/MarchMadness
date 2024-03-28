@@ -140,9 +140,7 @@ class MyNeuralNetWorth(nn.Module):
 
 
 def save_hyperparameters_and_loss(trial, trial_number, val_loss, scaler, sizes, rates, activations):
-    csv_file_path = f'
-
-{trial_number}.csv'
+    csv_file_path = f'{trial_number}.csv'
 
     hyperparams = {
         'lr': trial.params['lr'],
@@ -216,6 +214,8 @@ def int2Activation(num):
         return nn.Tanh()
     elif num == 19:
         return nn.Tanhshrink()
+    
+
 def load_scaler_for_best_trial(best_trial_number):
     scaler_path = f"{best_trial_number}.pkl"
     with open(scaler_path, 'rb') as f:
