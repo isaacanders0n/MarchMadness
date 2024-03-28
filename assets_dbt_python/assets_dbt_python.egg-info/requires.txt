@@ -1,0 +1,16 @@
+dagster
+dagster-cloud
+boto3
+dagster-dbt
+pandas
+numpy
+scipy
+dbt-core
+dbt-duckdb
+dagster-duckdb
+dagster-duckdb-pandas
+packaging<22.0
+
+[dev]
+dagster-webserver
+pytest
