@@ -14,6 +14,9 @@ def read_to_one_frame(path) -> pd.DataFrame:
                 currYear = pd.read_csv(file)
                 currYear['YEAR'] = year
                 df = pd.concat([df, currYear])
+
+    df.drop('EFGD_D', axis = 1, inplace = True)
+
     return df
 
 
@@ -36,7 +39,7 @@ def encode_postseason(df: pd.DataFrame) -> pd.DataFrame:
 
 def arrange_cols(df: pd.DataFrame) -> pd.DataFrame:
     """Rearranges columns"""
-    col_order = df.columns[:-2] + ['POSTSEASON', 'YEAR']
+    col_order = list(df.columns[:-3]) + ['SEED', 'YEAR', 'POSTSEASON']
     return df[col_order]
 
 def create_made_postseason(df):
