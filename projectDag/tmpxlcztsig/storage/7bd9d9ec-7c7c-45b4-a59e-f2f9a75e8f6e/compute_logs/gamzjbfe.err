@@ -1,0 +1,7 @@
+[32m2024-04-05 00:54:21 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 7bd9d9ec-7c7c-45b4-a59e-f2f9a75e8f6e - 60400 - LOGS_CAPTURED - Started capturing logs in process (pid: 60400).
+[32m2024-04-05 00:54:21 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 7bd9d9ec-7c7c-45b4-a59e-f2f9a75e8f6e - 60400 - parameter_tuning - STEP_START - Started execution of step "parameter_tuning".
+[32m2024-04-05 00:54:21 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 7bd9d9ec-7c7c-45b4-a59e-f2f9a75e8f6e - 60400 - parameter_tuning - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+[32m2024-04-05 00:54:21 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 7bd9d9ec-7c7c-45b4-a59e-f2f9a75e8f6e - parameter_tuning - Writing file at: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmpxlcztsig/storage/parameter_tuning using PickledObjectFilesystemIOManager...
+[32m2024-04-05 00:54:21 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 7bd9d9ec-7c7c-45b4-a59e-f2f9a75e8f6e - 60400 - parameter_tuning - ASSET_MATERIALIZATION - Materialized value parameter_tuning.
+[32m2024-04-05 00:54:21 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 7bd9d9ec-7c7c-45b4-a59e-f2f9a75e8f6e - 60400 - parameter_tuning - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2024-04-05 00:54:21 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 7bd9d9ec-7c7c-45b4-a59e-f2f9a75e8f6e - 60400 - parameter_tuning - STEP_SUCCESS - Finished execution of step "parameter_tuning" in 20ms.

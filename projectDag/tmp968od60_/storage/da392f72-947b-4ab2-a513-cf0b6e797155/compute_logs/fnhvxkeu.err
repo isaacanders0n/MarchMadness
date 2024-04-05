@@ -1,0 +1,14 @@
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - 40968 - LOGS_CAPTURED - Started capturing logs in process (pid: 40968).
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - 40968 - ncaa_cleaned - STEP_START - Started execution of step "ncaa_cleaned".
+/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/ncaa_mod/cleaning.py:48: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  df['MADE_POSTSEASON'] = np.where(pd.isna(df['POSTSEASON']), 0, 1)
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mWARNING[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - ncaa_cleaned - The MaterializeResult returned from AssetKey(['ncaa_cleaned']) will be stored by the I/O manager. To bypass the I/O manager, add return type annotation '-> MaterializeResult' to AssetKey(['ncaa_cleaned']).
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - 40968 - ncaa_cleaned - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - ncaa_cleaned - Writing file at: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmp968od60_/storage/ncaa_cleaned using PickledObjectFilesystemIOManager...
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - 40968 - ncaa_cleaned - ASSET_MATERIALIZATION - Materialized value ncaa_cleaned.
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - 40968 - ncaa_cleaned - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2024-04-05 00:15:58 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - da392f72-947b-4ab2-a513-cf0b6e797155 - 40968 - ncaa_cleaned - STEP_SUCCESS - Finished execution of step "ncaa_cleaned" in 54ms.

@@ -1,0 +1,35 @@
+[32m2024-04-05 00:04:59 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 20b671aa-df67-4ce9-8b5d-0882f07c5a1e - 35390 - LOGS_CAPTURED - Started capturing logs in process (pid: 35390).
+[32m2024-04-05 00:04:59 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 20b671aa-df67-4ce9-8b5d-0882f07c5a1e - 35390 - ncaa_rankings - STEP_START - Started execution of step "ncaa_rankings".
+[32m2024-04-05 00:04:59 -0500[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - 20b671aa-df67-4ce9-8b5d-0882f07c5a1e - 35390 - ncaa_rankings - STEP_FAILURE - Execution of step "ncaa_rankings" failed.
+
+dagster._core.errors.DagsterExecutionStepExecutionError: Error occurred while executing op "ncaa_rankings"::
+
+OSError: Cannot save file into a non-existent directory: '../data/processed'
+
+Stack Trace:
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/utils.py", line 54, in op_execution_error_boundary
+    yield
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_utils/__init__.py", line 463, in iterate_with_context
+    next_output = next(iterator)
+                  ^^^^^^^^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 131, in _coerce_op_compute_fn_to_iterator
+    result = invoke_compute_fn(
+             ^^^^^^^^^^^^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/compute_generator.py", line 125, in invoke_compute_fn
+    return fn(context, **args_to_pass) if context_arg_provided else fn(**args_to_pass)
+                                                                    ^^^^^^^^^^^^^^^^^^
+  File "/Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/projectDag/assets/ETL/__init__.py", line 15, in ncaa_rankings
+    df.to_csv('../data/processed/concatenated_data.csv')
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/pandas/core/generic.py", line 3772, in to_csv
+    return DataFrameRenderer(formatter).to_csv(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/pandas/io/formats/format.py", line 1186, in to_csv
+    csv_formatter.save()
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/pandas/io/formats/csvs.py", line 240, in save
+    with get_handle(
+         ^^^^^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/pandas/io/common.py", line 737, in get_handle
+    check_parent_directory(str(handle))
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/pandas/io/common.py", line 600, in check_parent_directory
+    raise OSError(rf"Cannot save file into a non-existent directory: '{parent}'")
+[0m
