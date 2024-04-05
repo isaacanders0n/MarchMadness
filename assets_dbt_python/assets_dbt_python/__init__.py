@@ -10,6 +10,7 @@ from dagster import (
 from dagster_duckdb_pandas import DuckDBPandasIOManager
 
 from .assets import forecasting, raw_data
+
 from .assets.dbt import (
     DBT_PROJECT_DIR,
     dbt_project_assets,

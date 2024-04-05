@@ -1,16 +1,24 @@
 from dagster import (Definitions, 
                      load_assets_from_modules,
+                     load_assets_from_package_module,
                      define_asset_job,
                      AssetSelection)
 
 from . import assets
-from assets import grab_dataset
+from .assets import ETL, model
 
 all_assets = load_assets_from_modules([assets])
 
-background_data = define_asset_job('source_data', selection = grab_dataset)
+etl_assets = load_assets_from_package_module(ETL, 
+                                            group_name = 'ETL',
+                                        )
+
+model_assets = load_assets_from_package_module(model, 
+                                              group_name = 'classifier')
+
+#cleaning = define_asset_job('cleaning', assets = AssetSelection('ETL.ncaa_cleaned', 'ETL.ncaa_rankings'))
 
 
 defs = Definitions(
-    assets=background_data,
+    assets=[*etl_assets, *model_assets],
 )
