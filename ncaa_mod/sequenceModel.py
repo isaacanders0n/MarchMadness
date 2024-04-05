@@ -106,11 +106,12 @@ for train_index, test_index in tscv.split(X, groups=processed_df['Year']):
         y_test_sequences.append(y_test_imputed[i + SEQUENCE_LENGTH - 1])
 
     X_train_tensor = torch.tensor(X_train_sequences, dtype=torch.float32, device=DEVICE)
-    y_train_tensor = torch.tensor(y_train_sequences, dtype=torch.long, device=DEVICE)
     X_val_tensor = torch.tensor(X_val_sequences, dtype=torch.float32, device=DEVICE)
-    y_val_tensor = torch.tensor(y_val_sequences, dtype=torch.long, device=DEVICE)
     X_test_tensor = torch.tensor(X_test_sequences, dtype=torch.float32, device=DEVICE)
-    y_test_tensor = torch.tensor(y_test_sequences, dtype=torch.long, device=DEVICE)
+    
+    y_train_tensor = torch.tensor(y_train_sequences, dtype=torch.long, device=DEVICE).flatten()
+    y_val_tensor = torch.tensor(y_val_sequences, dtype=torch.long, device=DEVICE).flatten()
+    y_test_tensor = torch.tensor(y_test_sequences, dtype=torch.long, device=DEVICE).flatten()
 
 class Chomp1d(nn.Module):
     def __init__(self, chomp_size):
