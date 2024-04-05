@@ -23,6 +23,9 @@ setup(
         "dagster-duckdb-pandas",
         # packaging v22 has build compatibility issues with dbt as of 2022-12-07
         "packaging<22.0",
+        #adding these
+        'seaborn>=0.11',
+        'matplotlib>=3.3',
     ],
     extras_require={"dev": ["dagster-webserver", "pytest"]},
 )
