@@ -9,5 +9,5 @@ date: 04/05/2024
 - Klein: Responsible for the parameter tuning node and proof of concept model which can be found in the `Models` group in the dag.  
 - Joel: Wrote tests.    
 - Hank: Created visualizations and handled EDA.    
-- Berkan: I don't know but he did something.    
+- Berkan: I don't know what but I know that he did something.    
 - Isaac Z: Did something.   
