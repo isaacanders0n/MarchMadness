@@ -1,20 +1,18 @@
-
-#still working on this
 # import pandas as pd
 # import sys
 # import os
-# from dagster import asset, MaterializeResult, MetadataValue
+# from dagster import asset, MaterializeResult, MetadataValue, SourceAsset, AssetKey, AssetIn
 # from ncaa_mod import cleaning as c
 # from projectDag.assets.ETL import ncaa_cleaned
 # import plotly.express as px
 # import plotly.io as pio
 # import base64
 
+# print(AssetKey(ncaa_cleaned))
 
-# @asset()
-# def corr():
+# @asset(ins = {'ncaa_cleaned': AssetIn('ncaa_cleaned')})
+# def corr(df : pd.DataFrame):
 #     '''Correlation Matrix of our data'''
-#     df = ncaa_cleaned()
 #     #plot scatter matrix
 #     fig = px.scatter_matrix(df, dimensions = ['ADJOE', 'ADJDE', 'BARTHAG', 'EFG_O', 'EFG_D', 'TOR'])
     
