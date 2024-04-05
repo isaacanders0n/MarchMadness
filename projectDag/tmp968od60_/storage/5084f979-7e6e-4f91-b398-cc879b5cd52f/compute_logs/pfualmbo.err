@@ -1,5 +1,0 @@
-[32m2024-04-05 00:42:55 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5084f979-7e6e-4f91-b398-cc879b5cd52f - 54162 - LOGS_CAPTURED - Started capturing logs in process (pid: 54162).
-[32m2024-04-05 00:42:55 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5084f979-7e6e-4f91-b398-cc879b5cd52f - 54162 - ncaa_rankings - STEP_START - Started execution of step "ncaa_rankings".
-[32m2024-04-05 00:42:55 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5084f979-7e6e-4f91-b398-cc879b5cd52f - 54162 - ncaa_rankings - STEP_OUTPUT - Yielded output "result" of type "Nothing". (Type check passed).
-[32m2024-04-05 00:42:55 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5084f979-7e6e-4f91-b398-cc879b5cd52f - 54162 - ncaa_rankings - ASSET_MATERIALIZATION - Materialized value ncaa_rankings.
-[32m2024-04-05 00:42:55 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - 5084f979-7e6e-4f91-b398-cc879b5cd52f - 54162 - ncaa_rankings - STEP_SUCCESS - Finished execution of step "ncaa_rankings" in 80ms.
