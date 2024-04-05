@@ -1,6 +1,6 @@
 ---
 title: CSE 314 Final Project
-authors: Isaac Anderson; Hank Weiss; Klein Morrow; Isaac Zhang; Berkan Domici; Joel Brown
+authors: Isaac Anderson; Hank Weiss; Klein Morrow; Isaac Zhang; Berkan Dokmeci; Joel Brown
 date: 04/05/2024
 ---  
 
