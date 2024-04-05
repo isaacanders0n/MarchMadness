@@ -5,9 +5,9 @@ date: 04/05/2024
 ---  
 
 ### PR2 
-- Isaac A: Created data cleaning module and assembled the structure of the DAG, including the data cleaning node.    
+- Isaac A: Created cleaning.py module, assembled the structure of the DAG, created the data ingestion and cleaning nodes.    
 - Klein: Responsible for the parameter tuning node and proof of concept model which can be found in the `Models` group in the dag.  
 - Joel: Wrote all of the tests.    
-- Hank: Created visualizations    
+- Hank: Created visualizations and implemented corr node    
 - Berkan: I don't know what but I know that he did something.    
-- Isaac Z: Did something.   
+- Isaac Z: Created visualizations and implemented boxplot node.   
