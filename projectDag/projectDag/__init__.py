@@ -14,13 +14,13 @@ etl_assets = load_assets_from_package_module(ETL,
 model_assets = load_assets_from_package_module(model, 
                                             group_name = 'classifier')
 
-# #still working on the eda tab
-# eda_assets = load_assets_from_package_module(EDA,
-#                                              group_name = 'EDA')
+#still working on the eda tab
+eda_assets = load_assets_from_package_module(EDA,
+                                            group_name = 'EDA')
 
 #cleaning = define_asset_job('cleaning', assets = AssetSelection('ETL.ncaa_cleaned', 'ETL.ncaa_rankings'))
 
 
 defs = Definitions(
-    assets=[*etl_assets, *model_assets],
+    assets=[*etl_assets, *model_assets, *eda_assets],
 )

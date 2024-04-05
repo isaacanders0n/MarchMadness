@@ -40,18 +40,3 @@ def ncaa_cleaned():
 def parameter_tuning():
     '''Klein this is where you define a function which trims the cleaned dataset to only contain the parameters you care about'''
     return pd.DataFrame()
-
-@asset(deps=[ncaa_cleaned])
-def eda():
-    '''Correlation Matrix of our data'''
-    df = pd.read_csv('../data/processed/cleaned_data.csv')
-    #plot scatter matrix
-    fig = px.scatter_matrix(df, dimensions = ['ADJOE', 'ADJDE', 'BARTHAG', 'EFG_O', 'EFG_D', 'TOR'])
-    
-    #save in memory
-    bytes_img = pio.to_image(fig, format="png", width=800, height=600, scale=2.0)
-    image_data = base64.b64encode(bytes_img)
-    #convert to markdown for preview
-    md_content = f"![img](data:image/png;base64,{image_data.decode()})"
-
-    return MaterializeResult(metadata={"plot": MetadataValue.md(md_content)})
