@@ -16,9 +16,10 @@ def read_to_one_frame(path) -> pd.DataFrame:
                 df = pd.concat([df, currYear])
 
     df.drop('EFGD_D', axis = 1, inplace = True)
-
     return df
 
+def clean_NA(df) -> pd.DataFrame:
+    return df.replace(['NA', 'N/A'], None)
 
 def encode_postseason(df: pd.DataFrame) -> pd.DataFrame:
     """Encodes postseason games as 1 and regular season games as 0"""
@@ -44,12 +45,12 @@ def arrange_cols(df: pd.DataFrame) -> pd.DataFrame:
 
 def create_made_postseason(df):
     """Creates a new column that indicates whether a team made the postseason"""
-    #replace N/A with NA
     df['MADE_POSTSEASON'] = np.where(pd.isna(df['POSTSEASON']), 0, 1)
     return df
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """Cleans data"""
+    df = clean_NA
     df = encode_postseason(df)
     df = arrange_cols(df)
     df = create_made_postseason(df)
