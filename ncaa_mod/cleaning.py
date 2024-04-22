@@ -23,6 +23,7 @@ def clean_NA(df) -> pd.DataFrame:
 
 def encode_postseason(df: pd.DataFrame) -> pd.DataFrame:
     """Encodes postseason games as 1 and regular season games as 0"""
+    print(type(df))
     rankings = {
         'Champions': 1,
         '2ND': 2,
@@ -50,7 +51,7 @@ def create_made_postseason(df):
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """Cleans data"""
-    df = clean_NA
+    df = clean_NA(df)
     df = encode_postseason(df)
     df = arrange_cols(df)
     df = create_made_postseason(df)

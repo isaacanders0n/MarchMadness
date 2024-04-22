@@ -16,7 +16,7 @@ def ncaa_rankings() -> None:
     '''Table containing team statistics for all NCAA mbb teams for years 2013-2023'''
     df = c.read_to_one_frame(DATA_FOLDER)
     print(f'ingested dataframe with {len(df)} rows')
-    df.to_csv(f'{DATA_FOLDER}/processed/concatenated_data.csv')
+    df.to_csv(f'{DATA_FOLDER}/processed/concatenated_data.csv', index = False)
 
     return MaterializeResult(
         metadata={
@@ -30,6 +30,7 @@ def ncaa_rankings() -> None:
 def ncaa_cleaned():
     '''Cleaned data'''
     df = pd.read_csv(f'{DATA_FOLDER}/processed/concatenated_data.csv')
+    print(type(df))
     df = c.clean_data(df)
     df.to_csv(f'{DATA_FOLDER}/processed/cleaned_data.csv')
 
