@@ -1,7 +1,9 @@
 import pandas as pd
 from dagster import asset
+from ncaa_mod import scraping as s
+
 
 @asset
-def grab_dataset():
-    df = pd.read_csv('data/2019.csv')
+def cleaned_test_data():
+    df = s.join()
     return df
