@@ -1,5 +1,6 @@
 __pycache__
 .venv
 .venv
+.DS_Store
 tmp/
 assets_dbt_python
