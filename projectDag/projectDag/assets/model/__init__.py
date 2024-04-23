@@ -27,10 +27,10 @@ def cleaned_validation_data(test_data):
 def split_data(parameter_tuning):
     '''Split the data into training and testing sets'''
     X = parameter_tuning.iloc[:, 4:-5]
+    print(X.columns)
     X = csr_matrix(X)
     y = parameter_tuning.iloc[:, -1]
     y = np.array(y) 
-    print(f'THIS IS WHAT Y LOOKS LIKE: {y}')
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
     return X_train, X_test, y_train, y_test
 

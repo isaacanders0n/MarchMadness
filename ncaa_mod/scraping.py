@@ -42,16 +42,6 @@ def get_fffinal():
 
 def join():
     team_results = get_team_results()
-    print(len(team_results))
     fffinal = get_fffinal()
-    print(len(fffinal))
 
     return team_results.join(fffinal, how="inner").reset_index()
-
-
-def main():
-    df = join()
-    print(df.head())
-    df.to_csv("data.csv", index=False)
-
-main()

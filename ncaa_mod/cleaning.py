@@ -14,8 +14,7 @@ def read_to_one_frame(path) -> pd.DataFrame:
                 currYear = pd.read_csv(file)
                 currYear['YEAR'] = year
                 df = pd.concat([df, currYear])
-
-    df.drop('EFGD_D', axis = 1, inplace = True)
+    df.drop('EFGD_D', axis=1, inplace=True)
     return df
 
 def clean_NA(df) -> pd.DataFrame:
@@ -23,7 +22,6 @@ def clean_NA(df) -> pd.DataFrame:
 
 def encode_postseason(df: pd.DataFrame) -> pd.DataFrame:
     """Encodes postseason games as 1 and regular season games as 0"""
-    print(type(df))
     rankings = {
         'Champions': 1,
         '2ND': 2,
@@ -62,3 +60,16 @@ def read_and_clean(path: str) -> pd.DataFrame:
     """Reads and cleans data"""
     df = read_to_one_frame(path)
     return clean_data(df)
+
+def createW_L(df):
+    df[['W', 'L']] = df['RECORD'].str.split('-', expand=True)
+    df.drop('RECORD', axis=1, inplace=True)
+    return df
+
+def arrange_validation_set(df):
+    cols = ["TEAM","CONF","W","L","ADJOE","ADJDE","BARTHAG","EFG_O",
+            "TOR","TORD","ORB","DRB","FTR","FTRD","2P_O","2P_D","3P_O","3P_D",
+            "ADJ_T","WAB"]
+    df.rename(columns = {'ADJT': 'ADJ_T'}, inplace = True)
+
+    return df[cols]
