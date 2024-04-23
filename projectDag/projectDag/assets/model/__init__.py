@@ -1,12 +1,15 @@
 import pandas as pd
-from dagster import asset, multi_asset, AssetIn, AssetOut, MaterializeResult
+from dagster import asset, multi_asset, AssetIn, AssetOut, MaterializeResult, MetadataValue
 from ncaa_mod import cleaning as c
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 from scipy.sparse import csr_matrix
 import numpy as np
+import os
 
+
+DATA_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', 'data'))
 
 
 @asset(ins = {'test_data': AssetIn('test_data')})
@@ -57,7 +60,12 @@ def bubbleClassifier(X_train, X_test, y_train, y_test):
 def bubbleClassification(bubbleClassifier: LogisticRegression, cleaned_validation_data):
     '''Placeholder for Klein's model'''
     X = cleaned_validation_data.iloc[:, 4:-1]
+    team = cleaned_validation_data.iloc[:, 0]
 
-    output = bubbleClassifier.predict(X)
+    X["TEAM"] = team
+    output = bubbleClassifier.predict(X.drop('TEAM', axis = 1))
 
-    return MaterializeResult(metadata={"output": output})
+    predictions_with_identifier = pd.DataFrame({'TEAM': team, 'Prediction': output})
+    predictions_with_identifier.to_csv(f'{DATA_FOLDER}/output/predictions.csv', index = False)
+
+    return MaterializeResult(metadata={"preview": MetadataValue.md(predictions_with_identifier.head().to_markdown())})

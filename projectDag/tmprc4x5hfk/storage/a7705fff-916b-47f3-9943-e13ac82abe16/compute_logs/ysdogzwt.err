@@ -1,0 +1,48 @@
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - LOGS_CAPTURED - Started capturing logs in process (pid: 28395).
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - STEP_START - Started execution of step "bubbleClassification".
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - bubbleClassification - Loading file from: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmprc4x5hfk/storage/bubbleClassifier using PickledObjectFilesystemIOManager...
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - ASSET_OBSERVATION - DagsterEventType.ASSET_OBSERVATION for step bubbleClassification
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - LOADED_INPUT - Loaded input "bubbleClassifier" using input manager "io_manager", from output "result" of step "bubbleClassifier"
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - bubbleClassification - Loading file from: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmprc4x5hfk/storage/cleaned_validation_data using PickledObjectFilesystemIOManager...
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - ASSET_OBSERVATION - DagsterEventType.ASSET_OBSERVATION for step bubbleClassification
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - LOADED_INPUT - Loaded input "cleaned_validation_data" using input manager "io_manager", from output "result" of step "cleaned_validation_data"
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - STEP_INPUT - Got input "bubbleClassifier" of type "LogisticRegression". (Type check passed).
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - STEP_INPUT - Got input "cleaned_validation_data" of type "Any". (Type check passed).
+/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/sklearn/base.py:457: UserWarning: X has feature names, but LogisticRegression was fitted without feature names
+  warnings.warn(
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mWARNING[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - bubbleClassification - The MaterializeResult returned from AssetKey(['bubbleClassification']) will be stored by the I/O manager. To bypass the I/O manager, add return type annotation '-> MaterializeResult' to AssetKey(['bubbleClassification']).
+[32m2024-04-23 14:13:24 -0500[0m - dagster - [34mERROR[0m - [31m__ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28395 - bubbleClassification - STEP_FAILURE - Execution of step "bubbleClassification" failed.
+
+dagster._core.errors.DagsterInvalidMetadata: Could not resolve the metadata value for "output" to a known type. Its type was <class 'numpy.ndarray'>. Consider wrapping the value with the appropriate MetadataValue type.
+
+Stack Trace:
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_plan.py", line 282, in dagster_event_sequence_for_step
+    for step_event in check.generator(step_events):
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_step.py", line 521, in core_dagster_event_sequence_for_step
+    for user_event in _step_output_error_checked_user_event_sequence(
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_step.py", line 202, in _step_output_error_checked_user_event_sequence
+    for user_event in user_event_sequence:
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_step.py", line 101, in _process_asset_results_to_events
+    yield from _process_user_event(step_context, user_event)
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/execution/plan/execute_step.py", line 124, in _process_user_event
+    yield Output(
+          ^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/decorator_utils.py", line 203, in wrapped_with_pre_call_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/definitions/events.py", line 103, in __init__
+    self._metadata = normalize_metadata(
+                     ^^^^^^^^^^^^^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/definitions/metadata/__init__.py", line 103, in normalize_metadata
+    raise DagsterInvalidMetadata(
+
+The above exception occurred during handling of the following exception:
+dagster._core.errors.DagsterInvalidMetadata: Its type was <class 'numpy.ndarray'>. Consider wrapping the value with the appropriate MetadataValue type.
+
+Stack Trace:
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/definitions/metadata/__init__.py", line 89, in normalize_metadata
+    normalized_value = normalize_metadata_value(v)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/isaacanderson/anaconda3/envs/boo/lib/python3.12/site-packages/dagster/_core/definitions/metadata/__init__.py", line 139, in normalize_metadata_value
+    raise DagsterInvalidMetadata(
+[0m

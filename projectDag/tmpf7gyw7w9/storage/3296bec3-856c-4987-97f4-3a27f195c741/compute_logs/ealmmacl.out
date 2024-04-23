@@ -1,0 +1,3 @@
+Index(['ADJOE', 'ADJDE', 'BARTHAG', 'EFG_O', 'TOR', 'TORD', 'ORB', 'DRB',
+       'FTR', 'FTRD', '2P_O', '2P_D', '3P_O', '3P_D', 'ADJ_T'],
+      dtype='object')

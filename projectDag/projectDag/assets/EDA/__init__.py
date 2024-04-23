@@ -6,12 +6,15 @@ from ncaa_mod import cleaning as c
 import plotly.express as px
 import plotly.io as pio
 import base64
+import os
+
+DATA_FOLDER = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..', '..', 'data'))
 
 
 @asset(ins = {'ncaa_cleaned': AssetIn('ncaa_cleaned')})
-def vis_dataset(ncaa_cleaned: pd.DataFrame):
+def vis_dataset(ncaa_cleaned):
     '''Preview of our data'''
-    return ncaa_cleaned
+    return pd.read_csv(f'{DATA_FOLDER}/processed/cleaned_data.csv')
 
 @asset()
 def corr(vis_dataset: pd.DataFrame):

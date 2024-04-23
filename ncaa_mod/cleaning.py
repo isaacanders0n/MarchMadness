@@ -42,10 +42,12 @@ def arrange_cols(df: pd.DataFrame) -> pd.DataFrame:
     col_order = list(df.columns[:-3]) + ['SEED', 'YEAR', 'POSTSEASON']
     return df[col_order]
 
+
 def create_made_postseason(df):
     """Creates a new column that indicates whether a team made the postseason"""
     df['MADE_POSTSEASON'] = np.where(pd.isna(df['POSTSEASON']), 0, 1)
     return df
+
 
 def clean_data(df: pd.DataFrame) -> pd.DataFrame:
     """Cleans data"""

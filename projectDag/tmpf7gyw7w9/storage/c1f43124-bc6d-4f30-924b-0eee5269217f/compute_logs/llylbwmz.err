@@ -1,0 +1,7 @@
+[32m2024-04-23 16:15:01 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c1f43124-bc6d-4f30-924b-0eee5269217f - 70185 - LOGS_CAPTURED - Started capturing logs in process (pid: 70185).
+[32m2024-04-23 16:15:01 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c1f43124-bc6d-4f30-924b-0eee5269217f - 70185 - ncaa_rankings - STEP_START - Started execution of step "ncaa_rankings".
+[32m2024-04-23 16:15:01 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c1f43124-bc6d-4f30-924b-0eee5269217f - 70185 - ncaa_rankings - STEP_OUTPUT - Yielded output "result" of type "DataFrame". (Type check passed).
+[32m2024-04-23 16:15:01 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c1f43124-bc6d-4f30-924b-0eee5269217f - ncaa_rankings - Writing file at: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmpf7gyw7w9/storage/ncaa_rankings using PickledObjectFilesystemIOManager...
+[32m2024-04-23 16:15:01 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c1f43124-bc6d-4f30-924b-0eee5269217f - 70185 - ncaa_rankings - ASSET_MATERIALIZATION - Materialized value ncaa_rankings.
+[32m2024-04-23 16:15:01 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c1f43124-bc6d-4f30-924b-0eee5269217f - 70185 - ncaa_rankings - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
+[32m2024-04-23 16:15:01 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - c1f43124-bc6d-4f30-924b-0eee5269217f - 70185 - ncaa_rankings - STEP_SUCCESS - Finished execution of step "ncaa_rankings" in 172ms.
