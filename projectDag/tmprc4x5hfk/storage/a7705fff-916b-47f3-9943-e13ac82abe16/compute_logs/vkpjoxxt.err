@@ -1,7 +1,0 @@
-[32m2024-04-23 14:13:07 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28006 - LOGS_CAPTURED - Started capturing logs in process (pid: 28006).
-[32m2024-04-23 14:13:07 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28006 - test_data - STEP_START - Started execution of step "test_data".
-[32m2024-04-23 14:13:08 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28006 - test_data - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
-[32m2024-04-23 14:13:08 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - test_data - Writing file at: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmprc4x5hfk/storage/test_data using PickledObjectFilesystemIOManager...
-[32m2024-04-23 14:13:08 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28006 - test_data - ASSET_MATERIALIZATION - Materialized value test_data.
-[32m2024-04-23 14:13:08 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28006 - test_data - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
-[32m2024-04-23 14:13:08 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - a7705fff-916b-47f3-9943-e13ac82abe16 - 28006 - test_data - STEP_SUCCESS - Finished execution of step "test_data" in 1.25s.

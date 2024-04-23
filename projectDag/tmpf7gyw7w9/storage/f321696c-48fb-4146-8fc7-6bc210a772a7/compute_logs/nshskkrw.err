@@ -1,7 +1,0 @@
-[32m2024-04-23 16:12:30 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f321696c-48fb-4146-8fc7-6bc210a772a7 - 68109 - LOGS_CAPTURED - Started capturing logs in process (pid: 68109).
-[32m2024-04-23 16:12:30 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f321696c-48fb-4146-8fc7-6bc210a772a7 - 68109 - parameter_tuning - STEP_START - Started execution of step "parameter_tuning".
-[32m2024-04-23 16:12:30 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f321696c-48fb-4146-8fc7-6bc210a772a7 - 68109 - parameter_tuning - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
-[32m2024-04-23 16:12:30 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f321696c-48fb-4146-8fc7-6bc210a772a7 - parameter_tuning - Writing file at: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmpf7gyw7w9/storage/parameter_tuning using PickledObjectFilesystemIOManager...
-[32m2024-04-23 16:12:30 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f321696c-48fb-4146-8fc7-6bc210a772a7 - 68109 - parameter_tuning - ASSET_MATERIALIZATION - Materialized value parameter_tuning.
-[32m2024-04-23 16:12:30 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f321696c-48fb-4146-8fc7-6bc210a772a7 - 68109 - parameter_tuning - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
-[32m2024-04-23 16:12:30 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - f321696c-48fb-4146-8fc7-6bc210a772a7 - 68109 - parameter_tuning - STEP_SUCCESS - Finished execution of step "parameter_tuning" in 36ms.
