@@ -14,13 +14,18 @@ import torch.nn.functional as F
 from torch.nn.utils import weight_norm
 from sklearn.preprocessing import StandardScaler
 from torch.utils.data import TensorDataset, DataLoader
+import os
 
 DEVICE = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 SEQUENCE_LENGTH = 3
 
 data_paths = ['cleaned_csvs/cleaned-cbb2013.csv', 'cleaned_csvs/cleaned-cbb2014.csv', 'cleaned_csvs/cleaned-cbb2015.csv','cleaned_csvs/cleaned-cbb2016.csv', 
-              'cleaned_csvs/cleaned-cbb2017.csv', 'cleaned_csvs/cleaned-cbb2018.csv', 'cleaned_csvs/cleaned-cbb2019.csv', 'cleaned_csvs/cleaned-cbb2020.csv', 
-              'cleaned_csvs/cleaned-cbb2021.csv', 'cleaned_csvs/cleaned-cbb2022.csv', 'cleaned_csvs/cleaned-cbb2023.csv']
+            'cleaned_csvs/cleaned-cbb2017.csv', 'cleaned_csvs/cleaned-cbb2018.csv', 'cleaned_csvs/cleaned-cbb2019.csv', 'cleaned_csvs/cleaned-cbb2020.csv', 
+            'cleaned_csvs/cleaned-cbb2021.csv', 'cleaned_csvs/cleaned-cbb2022.csv', 'cleaned_csvs/cleaned-cbb2023.csv']
+
+# wd = os.getcwd()
+# wd = wd.replace('/projectDag','')
+# data_paths = [os.path.join(wd, path) for path in data_paths]
 
 dataframes = {}
 for path in data_paths:
@@ -41,8 +46,9 @@ postseason_classes = label_encoder.classes_
 
 
 nominal_columns = ['TEAM', 'CONF']
-onehot_encoder = OneHotEncoder(sparse=False)
+onehot_encoder = OneHotEncoder(sparse_output=False)
 onehot_encoded = onehot_encoder.fit_transform(combined_df[nominal_columns])
+print(onehot_encoded.shape)
 onehot_encoded_df = pd.DataFrame(onehot_encoded, columns=onehot_encoder.get_feature_names_out(nominal_columns))
 processed_df = pd.concat([combined_df.drop(nominal_columns, axis=1), onehot_encoded_df], axis=1)
 processed_df.loc[(processed_df['Year'] == 2020) & (processed_df['POSTSEASON_encoded'] == label_encoder.transform(['NaN'])[0]), 'POSTSEASON_encoded'] = np.nan
@@ -125,19 +131,19 @@ class TemporalBlock(nn.Module):
     def __init__(self, n_inputs, n_outputs, kernel_size, stride, dilation, padding, dropout=0.2):
         super(TemporalBlock, self).__init__()
         self.conv1 = weight_norm(nn.Conv1d(n_inputs, n_outputs, kernel_size,
-                                           stride=stride, padding=padding, dilation=dilation))
+                                        stride=stride, padding=padding, dilation=dilation))
         self.chomp1 = Chomp1d(padding)
         self.relu1 = nn.ReLU()
         self.dropout1 = nn.Dropout(dropout)
 
         self.conv2 = weight_norm(nn.Conv1d(n_outputs, n_outputs, kernel_size,
-                                           stride=stride, padding=padding, dilation=dilation))
+                                        stride=stride, padding=padding, dilation=dilation))
         self.chomp2 = Chomp1d(padding)
         self.relu2 = nn.ReLU()
         self.dropout2 = nn.Dropout(dropout)
 
         self.net = nn.Sequential(self.conv1, self.chomp1, self.relu1, self.dropout1,
-                                 self.conv2, self.chomp2, self.relu2, self.dropout2)
+                                self.conv2, self.chomp2, self.relu2, self.dropout2)
         self.downsample = nn.Conv1d(n_inputs, n_outputs, 1) if n_inputs != n_outputs else None
         self.relu = nn.ReLU()
         self.init_weights()
@@ -230,3 +236,6 @@ with torch.no_grad():
     print(report)
     print("Confusion Matrix:")
     print(cm)
+
+
+

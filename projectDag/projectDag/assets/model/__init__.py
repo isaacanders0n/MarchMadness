@@ -41,7 +41,6 @@ def split_data(parameter_tuning):
 def bubbleClassifier(X_train, X_test, y_train, y_test):
     '''This is a placeholder until Klein model working'''
 
-    print(type(X_train))
     lr = LogisticRegression()
     lr.fit(X_train, y_train)
 
