@@ -33,12 +33,19 @@ def ncaa_cleaned(ncaa_rankings):
     df = pd.read_csv(f'{DATA_FOLDER}/processed/concatenated_data.csv')
     print(type(df))
     df = c.clean_data(df)
-    df.to_csv(f'{DATA_FOLDER}/processed/cleaned_data.csv')
+    df.to_csv(f'{DATA_FOLDER}/processed/cleaned_data.csv', index=False)
 
-    return df
+    return MaterializeResult(
+        metadata={
+            "num_records": len(df),  # Metsadata can be any key-value pair
+            "preview": MetadataValue.md(df.head().to_markdown())})
+            # The `MetadataValue` class has useful static methods to build Metadata
 
 
-@asset(deps=[ncaa_cleaned])
+@asset(deps = [ncaa_cleaned])
 def parameter_tuning():
     '''Klein this is where you define a function which trims the cleaned dataset to only contain the parameters you care about'''
-    return pd.DataFrame()
+    df = pd.read_csv(f'{DATA_FOLDER}/processed/cleaned_data.csv')
+    df.drop('EFG_D', axis = 1, inplace = True)
+    return df.dropna(subset= ["TEAM","CONF","W","L","ADJOE","ADJDE","BARTHAG","EFG_O"
+                            ,"TOR","TORD","ORB","DRB","FTR","FTRD","2P_O","2P_D","3P_O","3P_D", "ADJ_T","WAB"]) 

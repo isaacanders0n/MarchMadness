@@ -48,3 +48,10 @@ def join():
 
     return team_results.join(fffinal, how="inner").reset_index()
 
+
+def main():
+    df = join()
+    print(df.head())
+    df.to_csv("data.csv", index=False)
+
+main()
