@@ -1,8 +1,0 @@
-[32m2024-04-05 13:13:26 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - 5814 - LOGS_CAPTURED - Started capturing logs in process (pid: 5814).
-[32m2024-04-05 13:13:26 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - 5814 - eda - STEP_START - Started execution of step "eda".
-[32m2024-04-05 13:13:29 -0500[0m - dagster - [34mWARNING[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - eda - The MaterializeResult returned from AssetKey(['eda']) will be stored by the I/O manager. To bypass the I/O manager, add return type annotation '-> MaterializeResult' to AssetKey(['eda']).
-[32m2024-04-05 13:13:29 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - 5814 - eda - STEP_OUTPUT - Yielded output "result" of type "Any". (Type check passed).
-[32m2024-04-05 13:13:29 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - eda - Writing file at: /Users/isaacanderson/Desktop/CSE314/MarchMadness/projectDag/tmp73p465ob/storage/eda using PickledObjectFilesystemIOManager...
-[32m2024-04-05 13:13:29 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - 5814 - eda - ASSET_MATERIALIZATION - Materialized value eda.
-[32m2024-04-05 13:13:29 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - 5814 - eda - HANDLED_OUTPUT - Handled output "result" using IO manager "io_manager"
-[32m2024-04-05 13:13:29 -0500[0m - dagster - [34mDEBUG[0m - __ASSET_JOB - edcd8ad4-6d86-4266-b4e2-7e57c1f7a63a - 5814 - eda - STEP_SUCCESS - Finished execution of step "eda" in 3.3s.

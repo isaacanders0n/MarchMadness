@@ -1,11 +1,14 @@
 import pandas as pd
 import json
+# import os
+# base_path = os.getcwd() + '/data/'
 base_path = ''
 
 file_paths = [base_path + 'cbb13.csv', base_path + 'cbb14.csv', base_path + 'cbb15.csv', 
               base_path + 'cbb16.csv', base_path + 'cbb17.csv', base_path + 'cbb18.csv', 
               base_path + 'cbb19.csv', base_path + 'cbb20.csv', base_path + 'cbb21.csv', 
               base_path + 'cbb22.csv', base_path + 'cbb23.csv']
+
 
 unique_teams_per_file = {}
 
