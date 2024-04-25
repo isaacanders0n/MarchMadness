@@ -34,7 +34,7 @@ def split_data(parameter_tuning):
     X = csr_matrix(X)
     y = parameter_tuning.iloc[:, -1]
     y = np.array(y) 
-    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state=19)
     return X_train, X_test, y_train, y_test
 
 @asset(ins = {'X_train': AssetIn('X_train'),
