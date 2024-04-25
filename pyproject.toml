@@ -17,6 +17,7 @@ seaborn = "^0.11.2"
 dagster = "^0.12.9"
 requests = "^2.26.0"
 beautifulsoup4 = "^4.10.0"
+kaggle = "^1.5.12"
 
 
 [tool.poetry.group.dev.dependencies]
